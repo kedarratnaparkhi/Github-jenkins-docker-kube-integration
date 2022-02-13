@@ -33,8 +33,16 @@ pipeline{
         }
 
         stage('Docker Push'){
+            environment{
+                dockerhubcred = 'docker'
+            }
             steps{
                 echo 'inside Docker Push'
+                script{
+                    docker.withRegistry('https://registry.hub.docker.com', dockerhubcred){
+                        dockerImage.push("latest")
+                    }
+                }
             }
         }
 
