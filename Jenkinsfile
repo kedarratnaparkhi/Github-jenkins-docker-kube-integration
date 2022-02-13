@@ -1,5 +1,8 @@
 pipeline{
 
+    tools {
+        maven 'Maven'
+    }
     agent any
     environment{
         dockerimagename = "wallpapers123/cicddemo"
@@ -16,12 +19,16 @@ pipeline{
         stage('Code Build'){
             steps{
                 echo 'inside Code Build'
+                sh 'mvn clean install'
             }
         }
 
         stage('Docker Build'){
             steps{
                 echo 'inside Docker Build'
+                script{
+                    dockerImage = docker.build dockerimagename
+                }
             }
         }
 
