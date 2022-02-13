@@ -49,6 +49,9 @@ pipeline{
         stage('Kubernetes deploy'){
             steps{
                 echo 'inside Kubernetes deploy'
+                script{
+                    kubernetesDeploy(configs: "cicd-deployment.yaml", kubeConfigId: "kubeconfig")
+                }
             }
         }
     }

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdcd-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicd
+  template:
+    metadata:
+      labels:
+        app: cicd
+    spec:
+      containers:
+        - name: cicd
+          image: wallpapers123/cicddemo
+          ports:
+            - containerPort: 82
