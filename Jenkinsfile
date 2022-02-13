@@ -14,19 +14,19 @@ pipeline{
         }
 
         stage('Code Build'){
-
+            echo 'inside Code Build'
         }
 
         stage('Docker Build'){
-
+            echo 'inside Docker Build'
         }
 
         stage('Docker Push'){
-
+            echo 'inside Docker Push'
         }
 
         stage('Kubernetes deploy'){
-
+            echo 'inside Kubernetes deploy'
         }
     }
 }
