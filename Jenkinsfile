@@ -50,7 +50,7 @@ pipeline{
             steps{
                 echo 'inside Kubernetes deploy'
                 script{
-                    kubernetesDeploy(configs: "cicd-deployment.yaml", kubeConfigId: "kubeconfig")
+                    kubernetesDeploy(configs: "cicd-deployment.yaml", kubeconfigId: "kubeconfig")
                 }
             }
         }
